@@ -83,6 +83,23 @@ body {
     margin-bottom: 20px;
 }
 
+.add-button {
+    background-color: #4CAF50;
+    width: 100px;
+    height: 25px;
+    float: right;
+    text-align: center;
+    color: white;
+    border-radius: 20px;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+}
+.add-button:hover {
+    background-color: #45a049;
+    cursor: pointer;
+}
+
 /* Task Table */
 .task-table {
     width: 100%;
