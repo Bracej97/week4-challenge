@@ -83,6 +83,10 @@ body {
     margin-bottom: 20px;
 }
 
+.title-add {
+    position: relative;
+}
+
 .add-button {
     background-color: #4CAF50;
     width: 100px;
@@ -91,9 +95,9 @@ body {
     text-align: center;
     color: white;
     border-radius: 20px;
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
+    position: absolute;
+    right: 0;
+    top: 5px;
 }
 .add-button:hover {
     background-color: #45a049;
