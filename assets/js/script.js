@@ -1,26 +1,29 @@
 
 
 // 1. use document.getElementById to select the searchTerm Button
-var searchInputEl = document.getElementById("searchTerm");
+var inputTaskEl = document.getElementById("input-task");
 // 2. use document.getElementById to select the searchButton Button
-var searchButtonEl = document.getElementById("searchButton");
+var addTaskButtonEl = document.getElementById("add-task-button");
 // 3. add an event listener to the searchButton that calls the search function when clicked
-searchButtonEl.addEventListener("click", search)
+addTaskButtonEl.addEventListener("click", add)
 
-function search() {
+function add() {
   // 4. use the value property of the searchInput to get the search term
-    let searchTerm = searchInputEl.value;
-    if (searchTerm != "") {
+    let task = inputTaskEl.value;
+    if (task != "") {
   // 5. select the searches div using document.getElementById
-    var searchesEl = document.getElementById("searches");
+    var taskTableEl = document.getElementById("task-table");
   // 6. create a new li element using document.createElement
-    var newEl = document.createElement("li");
+    var newRowEl = document.createElement("tr");
+    newRowEl.innerHTML = `
+        <td>Incomplete</td>
+        <td>${task}</td>
+        <td>Placeholder</td>
+        <td><button class="complete-btn">Mark as Complete</button></td>
+        `
   // 7. set the innerHTML of the new paragraph to the search term
-    newEl.innerHTML = searchTerm;
-  // 8. append the new paragraph to the searches div
-    searchesEl.appendChild(newEl);
-    searchInputEl
-    } else {
 
+  // 8. append the new paragraph to the searches div
+    taskTableEl.appendChild(newRowEl);
     }
 };
