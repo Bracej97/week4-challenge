@@ -104,6 +104,12 @@ body {
     cursor: pointer;
 }
 
+.add-task-input {
+    padding: 10px;
+    font-size: 1rem;
+    width: 100%;
+}
+
 /* Task Table */
 .task-table {
     width: 100%;
