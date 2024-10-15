@@ -20,9 +20,9 @@ function add() {
         <td class="task">${task}</td>
         <td class="due-date">Placeholder</td>
         <td class="task-buttons">
-          <button class="complete-btn">Mark as Complete</button>
-          <button class="edit-btn">Edit</button>
-          <button class="delete-btn">Delete</button>
+          <button class="complete-btn">✅</button>
+          <button class="edit-btn">🖊️</button>
+          <button class="delete-btn">🗑</button>
         </td>
         `
   // 7. set the innerHTML of the new paragraph to the search term
@@ -50,9 +50,7 @@ function add() {
 };
 
 
-
 var completeButtonArr = document.querySelectorAll(".complete-btn");
-
 
 
 function complete() {
@@ -72,7 +70,27 @@ function edit() {
   let dateColEl = currentColEl.previousElementSibling;
   let taskColEl = dateColEl.previousElementSibling;
   let statusColEl = taskColEl.previousElementSibling;
+
+  let currentTask = taskColEl.textContent;
+  taskColEl.innerHTML = `<input type="text" value="${currentTask}" id="input-edit">`;
+
+  let acceptButton = document.createElement("button");
+  acceptButton.classList.add("accept-edit-button");
+  acceptButton.innerHTML = "✅";
+  taskColEl.appendChild(acceptButton);
+
+  var editButtonArr = document.querySelectorAll(".accept-edit-button");
+    for (let i = 0; i < editButtonArr.length; i++) {
+      editButtonArr[i].addEventListener("click", acceptEdit);
+    };
 };
+
+function acceptEdit() {
+  let updateTaskEl = this.parentNode;
+  let updatedTask = document.getElementById("input-edit").value;
+
+  updateTaskEl.innerHTML = updatedTask;
+}
 
 function deleteRow() {
   let currentColEl = this.parentNode;
