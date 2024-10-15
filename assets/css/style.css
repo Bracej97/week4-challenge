@@ -162,7 +162,7 @@ body {
 }
 
 .delete-btn {
-    background-color: #4CAF50;
+    background-color: #ff1515;
     color: white;
     padding: 8px 12px;
     border: none;
@@ -172,9 +172,27 @@ body {
 }
 
 .delete-btn:hover {
+    background-color: #e60b0b;
+}
+
+.accept-edit-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 2px 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 2px;
+}
+
+.accept-edit-button:hover {
     background-color: #45a049;
 }
 
+#input-edit {
+    width: 100%;
+}
 
 @media (max-width: 768px) {
     .dashboard-container {
