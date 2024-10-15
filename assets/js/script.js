@@ -19,7 +19,11 @@ function add() {
         <td class="status">Incomplete</td>
         <td class="task">${task}</td>
         <td class="due-date">Placeholder</td>
-        <td class="task-buttons"><button class="complete-btn">Mark as Complete</button></td>
+        <td class="task-buttons">
+          <button class="complete-btn">Mark as Complete</button>
+          <button class="edit-btn">Edit</button>
+          <button class="delete-btn">Delete</button>
+        </td>
         `
   // 7. set the innerHTML of the new paragraph to the search term
 
@@ -31,8 +35,6 @@ function add() {
     var completeButtonArr = document.querySelectorAll(".complete-btn");
     for (let i = 0; i < completeButtonArr.length; i++) {
       completeButtonArr[i].addEventListener("click", complete);
-      console.log(i);
-      console.log(completeButtonArr);
     };
     }
 };
@@ -50,5 +52,5 @@ function complete() {
   let statusColEl = taskColEl.previousElementSibling;
 
   statusColEl.innerHTML = "Complete";
-  currentRowEl.style.display = "none"
+  currentRowEl.style.display = "none";
 };

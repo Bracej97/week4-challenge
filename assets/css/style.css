@@ -140,9 +140,38 @@ body {
     border: none;
     cursor: pointer;
     border-radius: 4px;
+    margin-bottom: 3px;
 }
 
 .complete-btn:hover {
+    background-color: #45a049;
+}
+
+.edit-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 3px;
+}
+
+.edit-btn:hover {
+    background-color: #45a049;
+}
+
+.delete-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 3px;
+}
+
+.delete-btn:hover {
     background-color: #45a049;
 }
 
@@ -171,7 +200,7 @@ body {
 .sidebar nav ul {
     list-style-type: none;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 
