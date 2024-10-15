@@ -9,30 +9,46 @@ addTaskButtonEl.addEventListener("click", add);
 
 function add() {
   // 4. use the value property of the searchInput to get the search term
-    let task = inputTaskEl.value;
+    const task = inputTaskEl.value;
     if (task != "") {
   // 5. select the searches div using document.getElementById
 
   // 6. create a new li element using document.createElement
     var newRowEl = document.createElement("tr");
     newRowEl.innerHTML = `
-        <td>Incomplete</td>
-        <td>${task}</td>
-        <td>Placeholder</td>
-        <td><button class="complete-btn">Mark as Complete</button></td>
+        <td class="status">Incomplete</td>
+        <td class="task">${task}</td>
+        <td class="due-date">Placeholder</td>
+        <td class="task-buttons"><button class="complete-btn">Mark as Complete</button></td>
         `
   // 7. set the innerHTML of the new paragraph to the search term
 
   // 8. append the new paragraph to the searches div
     taskTableEl.appendChild(newRowEl);
+
+    inputTaskEl.value = "";
+
+    var completeButtonArr = document.querySelectorAll(".complete-btn");
+    for (let i = 0; i < completeButtonArr.length; i++) {
+      completeButtonArr[i].addEventListener("click", complete);
+      console.log(i);
+      console.log(completeButtonArr);
+    };
     }
 };
 
-var completeButtonEl = document.getElementById("complete-btn");
 
-completeButtonEl.addEventListener("click", complete);
+
+var completeButtonArr = document.querySelectorAll(".complete-btn");
+
 
 function complete() {
-  let thisRow = completeButtonEl.parentNode;
-  console.log(thisRow.children)
-}
+  let currentColEl = this.parentNode;
+  let currentRowEl = currentColEl.parentNode;
+  let dateColEl = currentColEl.previousElementSibling;
+  let taskColEl = dateColEl.previousElementSibling;
+  let statusColEl = taskColEl.previousElementSibling;
+
+  statusColEl.innerHTML = "Complete";
+  currentRowEl.style.display = "none"
+};
