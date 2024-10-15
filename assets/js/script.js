@@ -36,12 +36,23 @@ function add() {
     for (let i = 0; i < completeButtonArr.length; i++) {
       completeButtonArr[i].addEventListener("click", complete);
     };
+
+    var editButtonArr = document.querySelectorAll(".edit-btn");
+    for (let i = 0; i < editButtonArr.length; i++) {
+      editButtonArr[i].addEventListener("click", edit);
+    };
+
+    var deleteButtonArr = document.querySelectorAll(".delete-btn");
+    for (let i = 0; i < deleteButtonArr.length; i++) {
+      deleteButtonArr[i].addEventListener("click", deleteRow);
+    };
     }
 };
 
 
 
 var completeButtonArr = document.querySelectorAll(".complete-btn");
+
 
 
 function complete() {
@@ -53,4 +64,19 @@ function complete() {
 
   statusColEl.innerHTML = "Complete";
   currentRowEl.style.display = "none";
+};
+
+function edit() {
+  let currentColEl = this.parentNode;
+  let currentRowEl = currentColEl.parentNode;
+  let dateColEl = currentColEl.previousElementSibling;
+  let taskColEl = dateColEl.previousElementSibling;
+  let statusColEl = taskColEl.previousElementSibling;
+};
+
+function deleteRow() {
+  let currentColEl = this.parentNode;
+  let currentRowEl = currentColEl.parentNode;
+
+  currentRowEl.remove();
 };
