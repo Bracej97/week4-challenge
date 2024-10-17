@@ -133,3 +133,23 @@ function completedTasksFilter() {
     }
   }
 }
+
+let searchBarEl = document.getElementById("search-bar");
+
+searchBarEl.addEventListener("keyup", searching);
+
+function searching() {
+  let searchInputEl = searchBarEl.value;
+
+  let taskTableEl = document.getElementById("task-table");
+  let taskFilterRowsArr = taskTableEl.children;
+  for (let i = 0; i < taskFilterRowsArr.length; i++) {
+    let currentRowFilter = taskFilterRowsArr[i];
+    let rowStatus = currentRowFilter.firstElementChild.nextElementSibling.innerText;
+    if(rowStatus.includes(searchInputEl)) {
+      currentRowFilter.style.display = ""
+    } else {
+      currentRowFilter.style.display = "none";
+    }
+  }
+}
