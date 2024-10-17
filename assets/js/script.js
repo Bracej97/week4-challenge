@@ -12,13 +12,16 @@ function add() {
     const task = inputTaskEl.value;
     if (task != "") {
   // 5. select the searches div using document.getElementById
-
+    let today = new Date();
+    let day = today.getDate();
+    let month = today.getMonth() + 1;
+    let year = today.getFullYear();
   // 6. create a new li element using document.createElement
     var newRowEl = document.createElement("tr");
     newRowEl.innerHTML = `
         <td class="status">Incomplete</td>
         <td class="task">${task}</td>
-        <td class="due-date">Placeholder</td>
+        <td class="due-date">${day}/${month}/${year}</td>
         <td class="task-buttons">
           <button class="complete-btn">✅</button>
           <button class="edit-btn">🖊️</button>
@@ -139,13 +142,13 @@ let searchBarEl = document.getElementById("search-bar");
 searchBarEl.addEventListener("keyup", searching);
 
 function searching() {
-  let searchInputEl = searchBarEl.value;
+  let searchInputEl = searchBarEl.value.toUpperCase();
 
   let taskTableEl = document.getElementById("task-table");
   let taskFilterRowsArr = taskTableEl.children;
   for (let i = 0; i < taskFilterRowsArr.length; i++) {
     let currentRowFilter = taskFilterRowsArr[i];
-    let rowStatus = currentRowFilter.firstElementChild.nextElementSibling.innerText;
+    let rowStatus = currentRowFilter.firstElementChild.nextElementSibling.innerText.toUpperCase();
     if(rowStatus.includes(searchInputEl)) {
       currentRowFilter.style.display = ""
     } else {
