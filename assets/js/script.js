@@ -98,3 +98,38 @@ function deleteRow() {
 
   currentRowEl.remove();
 };
+
+let tasksLinkEl = document.getElementById("tasks-link");
+
+let completedTasksLinkEl = document.getElementById("completed-tasks-link");
+
+tasksLinkEl.addEventListener("click", tasksFilter);
+completedTasksLinkEl.addEventListener("click", completedTasksFilter);
+
+function tasksFilter() {
+  let taskTableEl = document.getElementById("task-table");
+  let taskFilterRowsArr = taskTableEl.children;
+  for (let i = 0; i < taskFilterRowsArr.length; i++) {
+    let currentRowFilter = taskFilterRowsArr[i];
+    let rowStatus = currentRowFilter.firstElementChild.innerText;
+    if(rowStatus === "Incomplete") {
+      currentRowFilter.style.display = ""
+    } else {
+      currentRowFilter.style.display = "none";
+    }
+  }
+}
+
+function completedTasksFilter() {
+  let taskTableEl = document.getElementById("task-table");
+  let taskFilterRowsArr = taskTableEl.children;
+  for (let i = 0; i < taskFilterRowsArr.length; i++) {
+    let currentRowFilter = taskFilterRowsArr[i];
+    let rowStatus = currentRowFilter.firstElementChild.innerText;
+    if(rowStatus === "Complete") {
+      currentRowFilter.style.display = ""
+    } else {
+      currentRowFilter.style.display = "none";
+    }
+  }
+}
