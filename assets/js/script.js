@@ -1,22 +1,19 @@
-
+// Set up variables that need to be linked to the HTM file
 var taskTableEl = document.getElementById("task-table");
-// 1. use document.getElementById to select the searchTerm Button
 var inputTaskEl = document.getElementById("input-task");
-// 2. use document.getElementById to select the searchButton Button
 var addTaskButtonEl = document.getElementById("add-task-button");
-// 3. add an event listener to the searchButton that calls the search function when clicked
 addTaskButtonEl.addEventListener("click", add);
 
+// Create add function for adding task to the table
 function add() {
-  // 4. use the value property of the searchInput to get the search term
     const task = inputTaskEl.value;
     if (task != "") {
-  // 5. select the searches div using document.getElementById
+
     let today = new Date();
     let day = today.getDate();
     let month = today.getMonth() + 1;
     let year = today.getFullYear();
-  // 6. create a new li element using document.createElement
+
     var newRowEl = document.createElement("tr");
     newRowEl.innerHTML = `
         <td class="status">Incomplete</td>
@@ -28,9 +25,7 @@ function add() {
           <button class="delete-btn">🗑</button>
         </td>
         `
-  // 7. set the innerHTML of the new paragraph to the search term
 
-  // 8. append the new paragraph to the searches div
     taskTableEl.appendChild(newRowEl);
 
     inputTaskEl.value = "";
@@ -52,10 +47,7 @@ function add() {
     }
 };
 
-
-var completeButtonArr = document.querySelectorAll(".complete-btn");
-
-
+// Create functions for the complete button
 function complete() {
   let currentColEl = this.parentNode;
   let currentRowEl = currentColEl.parentNode;
@@ -67,6 +59,7 @@ function complete() {
   currentRowEl.style.display = "none";
 };
 
+// Create function for the edit button
 function edit() {
   let currentColEl = this.parentNode;
   let currentRowEl = currentColEl.parentNode;
@@ -95,6 +88,7 @@ function acceptEdit() {
   updateTaskEl.innerHTML = updatedTask;
 }
 
+// Create function for the delete button
 function deleteRow() {
   let currentColEl = this.parentNode;
   let currentRowEl = currentColEl.parentNode;
@@ -102,6 +96,7 @@ function deleteRow() {
   currentRowEl.remove();
 };
 
+// Create variables linked to the HTM doc for the complete and incomplete tasks
 let tasksLinkEl = document.getElementById("tasks-link");
 
 let completedTasksLinkEl = document.getElementById("completed-tasks-link");
@@ -109,6 +104,7 @@ let completedTasksLinkEl = document.getElementById("completed-tasks-link");
 tasksLinkEl.addEventListener("click", tasksFilter);
 completedTasksLinkEl.addEventListener("click", completedTasksFilter);
 
+// Create task filter function for the complete and incomplete tasks buttons
 function tasksFilter() {
   let taskTableEl = document.getElementById("task-table");
   let taskFilterRowsArr = taskTableEl.children;
@@ -137,10 +133,13 @@ function completedTasksFilter() {
   }
 }
 
+// Create variable linked to the HTM doc for the search bar
 let searchBarEl = document.getElementById("search-bar");
 
 searchBarEl.addEventListener("keyup", searching);
 
+
+// Create the function to complete the search
 function searching() {
   let searchInputEl = searchBarEl.value.toUpperCase();
 
